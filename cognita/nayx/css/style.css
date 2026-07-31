@@ -12210,7 +12210,7 @@ a {
 .hero {
   margin-top: 91px;
   min-height: calc(90vh - 91px);
-  background: url(".../assets/images/hero-bg.jpg") center top/cover no-repeat;
+  background: url("../assets/images/hero-bg.jpg") center top/cover no-repeat;
   overflow: hidden;
   color: #ffffff;
   position: relative;
