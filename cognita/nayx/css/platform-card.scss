@@ -123,6 +123,10 @@
   gap: 1.5rem;
   flex: 1;
 
+  @media (max-width: 767px) {
+    align-items: center;
+  }
+
   &__header {
     display: flex;
     align-items: center;

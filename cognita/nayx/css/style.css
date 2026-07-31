@@ -12247,6 +12247,14 @@ a {
   gap: 16px;
   flex-wrap: wrap;
 }
+@media (max-width: 767px) {
+  .hero__buttons {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    letter-spacing: -0.3px;
+    gap: 10px;
+  }
+}
 .hero__buttons--link {
   display: inline-flex;
   align-items: center;
@@ -13280,6 +13288,11 @@ a {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 767px) {
+  .network-hub {
+    height: inherit;
+  }
+}
 .network-hub img {
   max-height: 450px;
   width: 100%;
@@ -13590,6 +13603,11 @@ a {
   gap: 1.5rem;
   flex: 1;
 }
+@media (max-width: 767px) {
+  .audience-card {
+    align-items: center;
+  }
+}
 .audience-card__header {
   display: flex;
   align-items: center;
@@ -13804,6 +13822,11 @@ a {
   color: #002f74;
   margin-bottom: 1.25rem;
 }
+@media (max-width: 767px) {
+  .footer-card__logo {
+    justify-content: center;
+  }
+}
 .footer-card__logo img {
   max-height: 50px;
 }
@@ -13839,14 +13862,86 @@ a {
   .footer-card__columns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.5rem 1rem;
+    width: 100%;
+  }
+  .footer-card__columns > .nav-col--connect,
+  .footer-card__columns > .nav-col:last-child {
+    grid-column: 1/-1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-card__columns > .nav-col--connect .nav-col__title,
+  .footer-card__columns > .nav-col:last-child .nav-col__title {
+    align-items: center;
+  }
+  .footer-card__columns > .nav-col--connect .contact-list,
+  .footer-card__columns > .nav-col:last-child .contact-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .footer-card__columns > .nav-col--connect .contact-list li,
+  .footer-card__columns > .nav-col:last-child .contact-list li {
+    justify-content: center;
+  }
+  .footer-card__columns > .nav-col--connect .socials,
+  .footer-card__columns > .nav-col:last-child .socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-card__columns > .nav-col--connect .socials__list,
+  .footer-card__columns > .nav-col:last-child .socials__list {
+    justify-content: center;
+  }
+  .footer-card__columns > .nav-col--connect .subscribe-box,
+  .footer-card__columns > .nav-col:last-child .subscribe-box {
+    max-width: 320px;
     width: 100%;
   }
 }
-@media (max-width: 480px) {
-  .footer-card__columns {
-    grid-template-columns: 1fr;
+.footer-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+@media (max-width: 640px) {
+  .footer-card__bottom {
+    flex-direction: column;
+    gap: 0.85rem;
+    align-items: center;
+    text-align: center;
+    font-size: 0.85rem;
   }
+}
+.footer-card__bottom .brand-highlight {
+  color: #0bbeba;
+  font-weight: 700;
+}
+.footer-card__legal {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.footer-card__legal a {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-card__legal a:hover {
+  color: #0bbeba;
+}
+.footer-card__legal .sep {
+  color: rgba(100, 116, 139, 0.6);
 }
 
 .nav-col {
@@ -14169,45 +14264,6 @@ a {
   font-weight: 600;
   color: #64748b;
   margin-top: 2px;
-}
-
-.footer-card__bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 1rem;
-  margin-top: 1rem;
-  font-size: 0.75rem;
-  color: #64748b;
-}
-@media (max-width: 640px) {
-  .footer-card__bottom {
-    flex-direction: column;
-    gap: 0.85rem;
-    align-items: flex-start;
-    font-size: 0.85rem;
-  }
-}
-.footer-card__bottom .brand-highlight {
-  color: #0bbeba;
-  font-weight: 700;
-}
-
-.footer-card__legal {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.footer-card__legal a {
-  color: #64748b;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.footer-card__legal a:hover {
-  color: #0bbeba;
-}
-.footer-card__legal .sep {
-  color: rgba(100, 116, 139, 0.6);
 }
 
 .navbar-toggler {

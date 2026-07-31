@@ -2,7 +2,7 @@
   margin-top: 91px;
   min-height: calc(90vh - 91px);
   background: url("../assets/images/hero-bg.jpg") center top / cover no-repeat;
-  
+
   overflow: hidden;
   color: $color-white;
   position: relative;
@@ -35,6 +35,7 @@
     color: rgba($color-white, 0.85);
     margin-bottom: 30px;
     max-width: 520px;
+
   }
 
   &__buttons {
@@ -42,6 +43,14 @@
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+
+
+    @media (max-width: 767px) {
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      letter-spacing: -0.3px;
+      gap: 10px;
+    }
 
     &--link {
       display: inline-flex;
