@@ -1,0 +1,9 @@
+[26-Oct-2022 17:51:19 UTC] PHP Fatal error:  Uncaught PHPMailer\PHPMailer\Exception: Invalid address:  (to): addyour@emailhere in /home/ixbrmjhuc8mf/public_html/quform/vendor/phpmailer/phpmailer/src/PHPMailer.php:1148
+Stack trace:
+#0 [internal function]: PHPMailer\PHPMailer\PHPMailer->addAnAddress('to', 'addyour@emailhe...', '')
+#1 /home/ixbrmjhuc8mf/public_html/quform/vendor/phpmailer/phpmailer/src/PHPMailer.php(1107): call_user_func_array(Array, Array)
+#2 /home/ixbrmjhuc8mf/public_html/quform/vendor/phpmailer/phpmailer/src/PHPMailer.php(1005): PHPMailer\PHPMailer\PHPMailer->addOrEnqueueAnAddress('to', 'addyour@emailhe...', '')
+#3 /home/ixbrmjhuc8mf/public_html/quform/contact.php(389): PHPMailer\PHPMailer\PHPMailer->addAddress('addyour@emailhe...')
+#4 /home/ixbrmjhuc8mf/public_html/quform/contact.php(456): process(Object(Quform), Array)
+#5 {main}
+  thrown in /home/ixbrmjhuc8mf/public_html/quform/vendor/phpmailer/phpmailer/src/PHPMailer.php on line 1148
