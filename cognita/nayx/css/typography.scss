@@ -1,0 +1,156 @@
+body {
+  font-family: $font-primary;
+  font-weight: $font-regular;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+button{
+  outline: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-primary;
+  font-weight: $font-regular;
+  font-weight: 700;
+  line-height: 1.2;
+}
+h1 {
+  font-size: 48px;
+  letter-spacing: -1px;
+
+  @media (max-width: 992px) {
+    font-size: 38px;
+  }
+  @media (max-width: 576px) {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 38px;
+  letter-spacing: -0.5px;
+
+  @media (max-width: 992px) {
+    font-size: 32px;
+  }
+  @media (max-width: 576px) {
+    font-size: 26px;
+  }
+}
+
+h3 {
+  font-size: 28px;
+  letter-spacing: -0.3px;
+
+  @media (max-width: 992px) {
+    font-size: 24px;
+  }
+  @media (max-width: 576px) {
+    font-size: 22px;
+  }
+}
+
+h4 {
+  font-size: 22px;
+
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
+}
+
+h5 {
+  font-size: 18px;
+
+  @media (max-width: 576px) {
+    font-size: 16px;
+  }
+}
+
+h6 {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+p {
+  margin-bottom: 1rem;
+  font-family: $font-primary;
+}
+
+a {
+  text-decoration: none;
+}
+
+// titles
+.sub-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: $color-accent-teal;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+  text-align: center;
+  max-width: 100%;
+
+  .brand-name {
+    color: #0d2847;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    width: 36px;
+    height: 2px;
+    background-color: $color-accent-teal;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 576px) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12.5px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+
+    // Remove left line completely
+    &::before {
+      display: none;
+    }
+
+    // Turn right line into a centered underline bar below the text
+    &::after {
+      width: 32px;
+      height: 2px;
+      border-radius: 1px;
+    }
+  }
+}
+
+.main-title {
+  color: $text-primary;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.6px;
+
+  .highlight {
+    color: $color-accent-teal;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+}
+
+.description {
+  font-size: 16px;
+  color: $color-text-muted;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}

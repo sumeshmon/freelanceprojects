@@ -1,0 +1,240 @@
+.hero-banner {
+  width: 100%;
+  font-family: $font-primary;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &__container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    position: relative;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      padding: 1rem 1.25rem;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: 992px) {
+      align-items: center;
+      max-width: 100%;
+    }
+  }
+
+  &__tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .line {
+      width: 40px;
+      height: 1px;
+      background-color: rgba($color-teal, 0.4);
+
+      @media (max-width: 576px) {
+        display: none;
+      }
+    }
+
+    .badge-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: $color-white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-teal;
+      box-shadow: 0 4px 12px rgba($color-dark-teal, 0.05);
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .text-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.75rem;
+      font-family: $font-heading;
+      font-weight: $font-bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .tag-primary {
+      color: $color-primary;
+    }
+
+    .tag-teal {
+      color: $color-teal;
+    }
+  }
+
+  &__title {
+    font-size: 3.75rem;
+    font-family: $font-heading;
+    font-weight: $font-extrabold;
+    line-height: 1.1;
+    color: $color-heading;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.02em;
+
+    @media (max-width: 1200px) {
+      font-size: 3rem;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 2.25rem;
+    }
+
+    .highlight-teal {
+      color: $color-teal;
+      display: block;
+    }
+  }
+
+  &__divider {
+    width: 60px;
+    height: 2px;
+    background-color: $color-teal;
+    margin-bottom: 1.5rem;
+  }
+
+  &__desc {
+    font-size: 1.125rem;
+    font-weight: $font-regular;
+    color: $color-text-muted;
+    line-height: 1.6;
+    margin: 0 0 2.5rem 0;
+    max-width: 480px;
+
+    @media (max-width: 576px) {
+      font-size: 1rem;
+    }
+  }
+
+  &__graphic {
+    flex: 1.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+
+    @media (max-width: 576px) {
+      min-height: 360px;
+    }
+  }
+}
+
+.bg-dots {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(5, 6px);
+  gap: 12px;
+  opacity: 0.25;
+  pointer-events: none;
+
+  span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-teal;
+  }
+
+  &--top-right {
+    top: -20px;
+    right: 10%;
+  }
+
+  &--bottom-left {
+    bottom: -80px;
+    left: -30px;
+  }
+}
+
+.network-hub {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-height: 450px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    @media (max-width: 768px) {
+      max-height: none;
+    }
+  }
+
+  &__center-ring {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $color-teal 0%, $text-secondary 100%);
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 50px rgba($color-teal, 0.4);
+    z-index: 3;
+
+    svg {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  &__orbit-outer {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 1.5px dashed rgba($color-teal, 0.25);
+    border-radius: 50%;
+
+    @media (max-width: 576px) {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  &__orbit-inner {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border: 1.5px dashed rgba($color-teal, 0.35);
+    border-radius: 50%;
+
+    @media (max-width: 576px) {
+      width: 180px;
+      height: 180px;
+    }
+  }
+}
