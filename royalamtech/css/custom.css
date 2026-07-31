@@ -1,0 +1,22 @@
+.card-style1 .card-icon .fa-cart-shopping:before,
+.card-style1 .card-icon .fa-handshake:before,
+.card-style1 .card-icon .fa-building:before,
+.card-style1 .card-icon .fa-car-side:before,
+.card-style1 .card-icon .fa-university:before{
+    color: #fff;
+    font-size: 2rem;
+}
+footer a{
+    color: #fff;
+}
+.whatsapp-icon{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 20;
+    color: #25D366;
+}
+.whatsapp-icon .fa-whatsapp{
+    color: #25D366;
+    font-size: 2rem;
+}
