@@ -86,4 +86,34 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  // hero counter
+  const counterElement = document.querySelector(".card-stat--ring h2");
+  
+  if (!counterElement) return;
+
+  const targetNumber = 98;
+  const duration = 4500; // 4.5 seconds (matches SCSS ring animation duration)
+  const delay = 400;     // 0.4s initial delay to match SCSS
+  const intervalTime = 30; // smooth update frequency
+
+  const steps = duration / intervalTime;
+  const increment = targetNumber / steps;
+  let currentVal = 0;
+
+  setTimeout(() => {
+    const timer = setInterval(() => {
+      currentVal += increment;
+      if (currentVal >= targetNumber) {
+        counterElement.textContent = `${targetNumber}%`;
+        clearInterval(timer);
+      } else {
+        counterElement.textContent = `${Math.floor(currentVal)}%`;
+      }
+    }, intervalTime);
+  }, delay);
+  // footer date
+  const date = new Date()
+    const year  = date.getFullYear()
+    const copyright = document.getElementById('current-year')
+    copyright.textContent += ` ${year}`
 });

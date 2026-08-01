@@ -1,3 +1,47 @@
+@keyframes statusDotBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes drawRing {
+  from {
+    stroke-dasharray: 0, 100;
+  }
+
+  to {
+    stroke-dasharray: 98, 100;
+  }
+}
+
+@keyframes drawGraphLine {
+  from {
+    stroke-dashoffset: 200;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeInGraphFill {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.25;
+  }
+}
+
 .hero {
   margin-top: 91px;
   min-height: calc(90vh - 91px);
@@ -35,7 +79,6 @@
     color: rgba($color-white, 0.85);
     margin-bottom: 30px;
     max-width: 520px;
-
   }
 
   &__buttons {
@@ -43,7 +86,6 @@
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
-
 
     @media (max-width: 767px) {
       flex-wrap: nowrap;
@@ -69,6 +111,11 @@
       overflow: hidden;
       transition: 0.35s ease;
       box-shadow: 0 12px 25px rgba($color-primary, 0.35), inset 0 1px 0 rgba($color-white, 0.18);
+
+      @media (min-width: 992px) {
+        font-size: 14px;
+        padding: 12px 22px;
+      }
 
       &::before {
         content: "";
@@ -159,6 +206,19 @@
   }
 }
 
+/* Base Card Hover Enhancements */
+.card-match,
+.card-stat {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
+  cursor: pointer;
+  will-change: transform, box-shadow;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.22);
+  }
+}
+
 .card-match {
   background: rgba($color-white, 0.95);
   backdrop-filter: blur(12px);
@@ -180,7 +240,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
     }
+  }
+
+  &:hover &__avatar img {
+    transform: scale(1.06);
   }
 
   &__info {
@@ -211,6 +276,7 @@
       padding: 3px 10px;
       border-radius: 20px;
       margin-bottom: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .status {
@@ -227,8 +293,14 @@
         height: 8px;
         background-color: $color-teal;
         border-radius: 50%;
+        animation: statusDotBlink 1.8s ease-in-out infinite;
       }
     }
+  }
+
+  &:hover .match-badge {
+    background-color: $color-teal;
+    color: $color-white;
   }
 }
 
@@ -273,6 +345,7 @@
       font-size: 18px;
       color: $color-white;
       flex-shrink: 0;
+      transition: transform 0.4s ease, background 0.4s ease;
     }
 
     h2 {
@@ -281,6 +354,11 @@
 
     p {
       color: rgba($color-white, 0.7);
+    }
+
+    &:hover .card-stat__icon {
+      transform: scale(1.1) rotate(8deg);
+      background: rgba($color-white, 0.22);
     }
   }
 
@@ -306,7 +384,24 @@
         width: 100%;
         height: auto;
         display: block;
+
+        path[stroke] {
+          stroke-dasharray: 200;
+          stroke-dashoffset: 200;
+          animation: drawGraphLine 5s ease forwards 0.4s;
+          transition: stroke 0.3s ease;
+        }
+
+        path[fill] {
+          opacity: 0;
+          animation: fadeInGraphFill 3.5s ease forwards 1.8s;
+          transition: opacity 0.3s ease;
+        }
       }
+    }
+
+    &:hover .graph-svg svg path[fill] {
+      opacity: 0.4;
     }
   }
 
@@ -331,6 +426,7 @@
         width: 100%;
         height: 100%;
         transform: rotate(-90deg);
+        transition: transform 0.4s ease;
 
         .circle-bg {
           fill: none;
@@ -343,8 +439,13 @@
           stroke: $color-accent-teal;
           stroke-width: 4;
           stroke-linecap: round;
+          animation: drawRing 4.5s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.4s;
         }
       }
+    }
+
+    &:hover .ring-chart svg {
+      transform: rotate(-90deg) scale(1.1);
     }
   }
 }
