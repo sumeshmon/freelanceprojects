@@ -1,5 +1,4 @@
 @keyframes statusDotBlink {
-
   0%,
   100% {
     opacity: 1;
@@ -23,22 +22,45 @@
 }
 
 @keyframes drawGraphLine {
-  from {
+  0% {
     stroke-dashoffset: 200;
+    opacity: 1;
   }
 
-  to {
+  /* Slow draw: line finishes drawing smoothly across 80% of cycle (~3.2s) */
+  80% {
     stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  /* Short hold (~0.5s) */
+  92% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  /* Quick fade out before restarting (~0.3s) */
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
   }
 }
 
 @keyframes fadeInGraphFill {
-  from {
+  0% {
     opacity: 0;
   }
 
-  to {
+  80% {
     opacity: 0.25;
+  }
+
+  92% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 
@@ -97,14 +119,14 @@
     &--link {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 28px;
+      gap: 8px;
+      padding: 12px 22px;
       background: linear-gradient(135deg, $color-primary 0%, $color-primary 100%);
       color: $color-white;
       border: 1px solid rgba($color-white, 0.12);
       border-radius: $border-radius;
       font-family: $font-secondary;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: $font-semibold;
       text-decoration: none;
       position: relative;
@@ -206,7 +228,6 @@
   }
 }
 
-/* Base Card Hover Enhancements */
 .card-match,
 .card-stat {
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
@@ -388,13 +409,13 @@
         path[stroke] {
           stroke-dasharray: 200;
           stroke-dashoffset: 200;
-          animation: drawGraphLine 5s ease forwards 0.4s;
+          animation: drawGraphLine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
           transition: stroke 0.3s ease;
         }
 
         path[fill] {
           opacity: 0;
-          animation: fadeInGraphFill 3.5s ease forwards 1.8s;
+          animation: fadeInGraphFill 4s ease-in-out infinite;
           transition: opacity 0.3s ease;
         }
       }

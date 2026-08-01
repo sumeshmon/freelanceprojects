@@ -12226,19 +12226,38 @@ a {
   }
 }
 @keyframes drawGraphLine {
-  from {
+  0% {
     stroke-dashoffset: 200;
+    opacity: 1;
   }
-  to {
+  /* Slow draw: line finishes drawing smoothly across 80% of cycle (~3.2s) */
+  80% {
     stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  /* Short hold (~0.5s) */
+  92% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  /* Quick fade out before restarting (~0.3s) */
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
   }
 }
 @keyframes fadeInGraphFill {
-  from {
+  0% {
     opacity: 0;
   }
-  to {
+  80% {
     opacity: 0.25;
+  }
+  92% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
   }
 }
 .hero {
@@ -12292,14 +12311,14 @@ a {
 .hero__buttons--link {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 28px;
+  gap: 8px;
+  padding: 12px 22px;
   background: linear-gradient(135deg, #002f74 0%, #002f74 100%);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   font-family: "Instrument Sans Medium", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   position: relative;
@@ -12380,7 +12399,6 @@ a {
   }
 }
 
-/* Base Card Hover Enhancements */
 .card-match,
 .card-stat {
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
@@ -12542,12 +12560,12 @@ a {
 .card-stat--graph .graph-svg svg path[stroke] {
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
-  animation: drawGraphLine 5s ease forwards 0.4s;
+  animation: drawGraphLine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   transition: stroke 0.3s ease;
 }
 .card-stat--graph .graph-svg svg path[fill] {
   opacity: 0;
-  animation: fadeInGraphFill 3.5s ease forwards 1.8s;
+  animation: fadeInGraphFill 4s ease-in-out infinite;
   transition: opacity 0.3s ease;
 }
 .card-stat--graph:hover .graph-svg svg path[fill] {
@@ -12641,6 +12659,19 @@ a {
 .about-section .image-grid .img-small.bottom {
   grid-column: 2/3;
   grid-row: 2/3;
+}
+@media (max-width: 767px) {
+  .about-section .image-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .about-section .image-grid .img-large,
+  .about-section .image-grid .img-small.top,
+  .about-section .image-grid .img-small.bottom {
+    grid-column: auto;
+    grid-row: auto;
+    height: 200px;
+  }
 }
 .about-section .content-wrapper {
   display: flex;
@@ -13705,7 +13736,7 @@ a {
 }
 @media (max-width: 991.98px) {
   .audience-card .btn {
-    max-width: 50% !important;
+    max-width: 60% !important;
   }
 }
 .audience-card__icon {
