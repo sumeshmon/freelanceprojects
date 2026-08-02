@@ -12218,11 +12218,17 @@ a {
   }
 }
 @keyframes drawRing {
-  from {
+  0% {
     stroke-dasharray: 0, 100;
   }
-  to {
+  85% {
     stroke-dasharray: 98, 100;
+  }
+  95% {
+    stroke-dasharray: 98, 100;
+  }
+  100% {
+    stroke-dasharray: 0, 100;
   }
 }
 @keyframes drawGraphLine {
@@ -12499,6 +12505,11 @@ a {
   margin: 0;
   line-height: 1;
 }
+@media (max-width: 767px) {
+  .card-stat h2, .card-stat .h2 {
+    font-size: 26px;
+  }
+}
 .card-stat p {
   font-family: "Instrument Sans Medium", sans-serif;
   font-size: 12px;
@@ -12602,7 +12613,7 @@ a {
   stroke: #0bbeba;
   stroke-width: 4;
   stroke-linecap: round;
-  animation: drawRing 4.5s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.4s;
+  animation: drawRing 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite 0.4s;
 }
 .card-stat--ring:hover .ring-chart svg {
   transform: rotate(-90deg) scale(1.1);
@@ -12660,17 +12671,28 @@ a {
   grid-column: 2/3;
   grid-row: 2/3;
 }
-@media (max-width: 767px) {
+@media (max-width: 778px) {
   .about-section .image-grid {
-    grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
+  .about-section .image-grid::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: -15px;
+    width: 120px;
+    height: 80px;
+    z-index: 0;
+    background-image: radial-gradient(rgba(11, 190, 186, 0.4) 2px, transparent 2px);
+    background-size: 14px 14px;
+  }
   .about-section .image-grid .img-large,
-  .about-section .image-grid .img-small.top,
-  .about-section .image-grid .img-small.bottom {
-    grid-column: auto;
-    grid-row: auto;
-    height: 200px;
+  .about-section .image-grid .img-small {
+    position: relative;
+    z-index: 1;
+  }
+  .about-section .image-grid img {
+    height: auto;
   }
 }
 .about-section .content-wrapper {
@@ -12813,6 +12835,7 @@ a {
   bottom: -140px;
   left: -100px;
   pointer-events: none;
+  display: none;
 }
 
 .enterprise-hero {

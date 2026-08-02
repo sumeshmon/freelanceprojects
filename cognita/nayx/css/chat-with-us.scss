@@ -10,12 +10,12 @@
   padding: 0 1.5rem 0 0.75rem;
   background: rgba($color-white, 0.95);
   backdrop-filter: blur(18px);
-  border: 1px solid rgba($color-accent-teal, 0.12);
+  border: 1px solid rgba($color-accent-teal, 0.2);
   border-radius: 999px;
   text-decoration: none;
   box-shadow:
     0 16px 40px rgba($color-primary, 0.12),
-    0 6px 18px rgba($color-accent-teal, 0.08);
+    0 0 20px rgba($color-accent-teal, 0.15);
   transition: all 0.35s ease;
 
   &__icon {
@@ -26,17 +26,16 @@
     justify-content: center;
     flex-shrink: 0;
     border-radius: 50%;
-    background: linear-gradient(
-      135deg,
-      $color-accent-teal,
-      lighten($color-primary, 8%)
-    );
+    background: linear-gradient(135deg, $color-accent-teal, #6366f1);
     color: $color-white;
-    font-size: 1rem;
-    box-shadow:
-      0 0 0 6px rgba($color-accent-teal, 0.08),
-      0 8px 20px rgba($color-accent-teal, 0.18);
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba($color-accent-teal, 0.3);
     transition: all 0.35s ease;
+
+    i {
+      line-height: 1;
+      font-family: "bootstrap-icons" !important;
+    }
   }
 
   &__text {
@@ -51,17 +50,14 @@
 
   &:hover {
     transform: translateY(-4px);
-    border-color: rgba($color-accent-teal, 0.2);
+    border-color: rgba($color-accent-teal, 0.35);
     box-shadow:
       0 24px 50px rgba($color-primary, 0.16),
-      0 12px 30px rgba($color-accent-teal, 0.14);
+      0 0 30px rgba($color-accent-teal, 0.25);
     text-decoration: none;
 
     .chat-btn__icon {
-      transform: rotate(-8deg) scale(1.05);
-      box-shadow:
-        0 0 0 8px rgba($color-accent-teal, 0.12),
-        0 12px 24px rgba($color-accent-teal, 0.24);
+      transform: scale(1.08) rotate(-6deg);
     }
 
     .chat-btn__text {
