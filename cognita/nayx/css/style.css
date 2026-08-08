@@ -11895,6 +11895,7 @@ textarea.form-control-lg {
   justify-content: center;
   width: fit-content;
   max-width: 100%;
+  white-space: nowrap;
   gap: 8px;
   padding: 10px 22px !important;
   border: 0;
@@ -11907,6 +11908,11 @@ textarea.form-control-lg {
   overflow: hidden;
   transition: all 0.25s ease;
   cursor: pointer;
+}
+@media (max-width: 992px) {
+  .btn {
+    max-width: 100%;
+  }
 }
 .btn i,
 .btn .btn__arrow {
