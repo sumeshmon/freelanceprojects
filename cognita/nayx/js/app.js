@@ -1,4 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // faq
+  document.querySelectorAll('.faq-question').forEach((button) => {
+    button.addEventListener('click', () => {
+      const currentItem = button.parentElement;
+      const isActive = currentItem.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach((item) => {
+        item.classList.remove('active');
+      });
+
+      if (!isActive) {
+        currentItem.classList.add('active');
+      }
+    });
+  });
+  // carousel
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  const scrollAmount = 384; // 360px card + 24px gap
+
+  nextBtn.addEventListener('click', () => {
+    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  let autoPlay = setInterval(() => {
+    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  }, 3500);
+
+  track.addEventListener('mouseenter', () => clearInterval(autoPlay));
   // 1. Mobile Navbar Toggle Setup
   const toggler = document.querySelector(".navbar-toggler");
   const navbar = document.getElementById("navbar");
@@ -9,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toggler.addEventListener("click", (e) => {
       e.stopPropagation();
       navbar.classList.toggle("show");
-      
+
       const isOpen = navbar.classList.contains("show");
       toggler.setAttribute("aria-expanded", isOpen);
     });
@@ -42,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateCount = (currentTime) => {
       const elapsedTime = currentTime - startTime;
-      const progress = Math.min(elapsedTime / duration, 1); 
+      const progress = Math.min(elapsedTime / duration, 1);
 
       // Ease-out cubic formula for smooth slowdown at the end
       const easeOutProgress = 1 - Math.pow(1 - progress, 3);
@@ -88,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // hero counter
   const counterElement = document.querySelector(".card-stat--ring h2");
-  
+
   if (!counterElement) return;
 
   const targetNumber = 98;
@@ -113,7 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }, delay);
   // footer date
   const date = new Date()
-    const year  = date.getFullYear()
-    const copyright = document.getElementById('current-year')
-    copyright.textContent += ` ${year}`
+  const year = date.getFullYear()
+  const copyright = document.getElementById('current-year')
+  copyright.textContent += ` ${year}`
+
 });
