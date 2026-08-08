@@ -81,20 +81,6 @@
       flex-direction: column;
       position: relative;
 
-      .btn-group {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-
-        .btn {
-          display: inline-flex;
-          width: fit-content !important;
-          flex: 0 0 auto !important;
-          align-self: flex-start;
-        }
-      }
-
       .step-item {
         display: flex;
         align-items: flex-start;

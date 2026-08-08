@@ -1,0 +1,486 @@
+@keyframes statusDotBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes drawRing {
+  0% {
+    stroke-dasharray: 0, 100;
+  }
+
+  85% {
+    stroke-dasharray: 98, 100;
+  }
+
+  95% {
+    stroke-dasharray: 98, 100;
+  }
+
+  100% {
+    stroke-dasharray: 0, 100;
+  }
+}
+
+@keyframes drawGraphLine {
+  0% {
+    stroke-dashoffset: 200;
+    opacity: 1;
+  }
+
+  /* Slow draw: line finishes drawing smoothly across 80% of cycle (~3.2s) */
+  80% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  /* Short hold (~0.5s) */
+  92% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  /* Quick fade out before restarting (~0.3s) */
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInGraphFill {
+  0% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 0.25;
+  }
+
+  92% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero {
+  margin-top: 91px;
+  min-height: calc(90vh - 91px);
+  background: url("../assets/images/hero-bg.jpg") center top / cover no-repeat;
+
+  overflow: hidden;
+  color: $color-white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: $font-primary;
+  padding: 30px 24px 30px;
+
+  .row {
+    width: 100%;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 42px;
+    font-weight: $font-bold;
+    line-height: 1.2;
+    margin-bottom: 20px;
+
+    span {
+      color: $text-secondary;
+    }
+  }
+
+  &__desc {
+    font-family: $font-secondary;
+    font-size: 16px;
+    font-weight: $font-regular;
+    line-height: 1.6;
+    color: rgba($color-white, 0.85);
+    margin-bottom: 30px;
+    max-width: 520px;
+  }
+
+  &__buttons {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    @media (max-width: 767px) {
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      letter-spacing: -0.3px;
+      gap: 10px;
+    }
+
+    &--link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      background: linear-gradient(135deg, $color-primary 0%, $color-primary 100%);
+      color: $color-white;
+      border: 1px solid rgba($color-white, 0.12);
+      border-radius: $border-radius;
+      font-family: $font-secondary;
+      font-size: 14px;
+      font-weight: $font-semibold;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: 0.35s ease;
+      box-shadow: 0 12px 25px rgba($color-primary, 0.35), inset 0 1px 0 rgba($color-white, 0.18);
+
+      @media (min-width: 992px) {
+        font-size: 14px;
+        padding: 12px 22px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, transparent 25%, rgba($color-white, 0.25) 50%, transparent 75%);
+        transform: translateX(-120%);
+        transition: transform 0.8s ease;
+      }
+
+      i {
+        transition: 0.35s ease;
+      }
+
+      &:hover {
+        transform: translateY(-4px);
+
+        &::before {
+          transform: translateX(120%);
+        }
+
+        i {
+          transform: translateX(5px) scale(1.08);
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  &__cards {
+    position: relative;
+    max-width: 440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &--bottom {
+      display: flex;
+      gap: 16px;
+    }
+
+    &--left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
+
+    &--right {
+      flex: 1;
+      display: flex;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg,
+        rgba($color-primary, 0.96) 0%,
+        rgba($color-primary, 0.88) 35%,
+        rgba($color-primary, 0.55) 65%,
+        rgba($color-primary, 0.15) 100%),
+      radial-gradient(circle at 85% 50%,
+        rgba($color-teal, 0.25) 0%,
+        rgba($color-teal, 0) 45%);
+  }
+
+  >.container {
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (max-width: 991px) {
+    margin-top: 70px;
+    min-height: auto;
+    padding-top: 40px;
+    padding-bottom: 60px;
+
+    &__cards {
+      margin-top: 40px;
+    }
+  }
+}
+
+.card-match,
+.card-stat {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
+  cursor: pointer;
+  will-change: transform, box-shadow;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.22);
+  }
+}
+
+.card-match {
+  background: rgba($color-white, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: $border-radius + 4px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+  &__avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: $border-radius - 2px;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &:hover &__avatar img {
+    transform: scale(1.06);
+  }
+
+  &__info {
+    h3 {
+      font-family: $font-heading;
+      font-size: 17px;
+      font-weight: $font-bold;
+      color: $color-text-dark;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .location {
+      font-family: $font-secondary;
+      font-size: 14px;
+      font-weight: $font-medium;
+      color: $text-muted;
+      margin: 2px 0 6px;
+    }
+
+    .match-badge {
+      display: inline-block;
+      background-color: rgba($color-teal, 0.15);
+      color: $color-teal;
+      font-family: $font-heading;
+      font-size: 12px;
+      font-weight: $font-bold;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: $font-secondary;
+      font-size: 13px;
+      font-weight: $font-semibold;
+      color: $color-text-dark;
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        background-color: $color-teal;
+        border-radius: 50%;
+        animation: statusDotBlink 1.8s ease-in-out infinite;
+      }
+    }
+  }
+
+  &:hover .match-badge {
+    background-color: $color-teal;
+    color: $color-white;
+  }
+}
+
+.card-stat {
+  background: $color-white;
+  border-radius: $border-radius;
+  padding: 16px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+
+
+  h2 {
+    font-family: $font-heading;
+    font-size: 28px;
+    font-weight: $font-extrabold;
+    margin: 0;
+    line-height: 1;
+
+    @media (max-width: 767px) {
+      font-size: 26px;
+    }
+  }
+
+  p {
+    font-family: $font-secondary;
+    font-size: 12px;
+    font-weight: $font-semibold;
+    margin: 4px 0 0;
+    line-height: 1.3;
+  }
+
+  &--dark {
+    background: $color-card-bg;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .card-stat__icon {
+      width: 44px;
+      height: 44px;
+      background: rgba($color-white, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: $color-white;
+      flex-shrink: 0;
+      transition: transform 0.4s ease, background 0.4s ease;
+    }
+
+    h2 {
+      color: $color-white;
+    }
+
+    p {
+      color: rgba($color-white, 0.7);
+    }
+
+    &:hover .card-stat__icon {
+      transform: scale(1.1) rotate(8deg);
+      background: rgba($color-white, 0.22);
+    }
+  }
+
+  &--graph {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+      color: $color-primary;
+    }
+
+    p {
+      color: $text-muted;
+    }
+
+    .graph-svg {
+      margin-top: 12px;
+      width: 100%;
+
+      svg {
+        width: 100%;
+        height: auto;
+        display: block;
+
+        path[stroke] {
+          stroke-dasharray: 200;
+          stroke-dashoffset: 200;
+          animation: drawGraphLine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          transition: stroke 0.3s ease;
+        }
+
+        path[fill] {
+          opacity: 0;
+          animation: fadeInGraphFill 4s ease-in-out infinite;
+          transition: opacity 0.3s ease;
+        }
+      }
+    }
+
+    &:hover .graph-svg svg path[fill] {
+      opacity: 0.4;
+    }
+  }
+
+  &--ring {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      color: $color-text-dark;
+    }
+
+    p {
+      color: $color-text-muted;
+    }
+
+    .ring-chart {
+      width: 44px;
+      height: 44px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+        transition: transform 0.4s ease;
+
+        .circle-bg {
+          fill: none;
+          stroke: rgba($color-text-muted, 0.2);
+          stroke-width: 4;
+        }
+
+        .circle {
+          fill: none;
+          stroke: $color-accent-teal;
+          stroke-width: 4;
+          stroke-linecap: round;
+          animation: drawRing 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite 0.4s;
+        }
+      }
+    }
+
+    &:hover .ring-chart svg {
+      transform: rotate(-90deg) scale(1.1);
+    }
+  }
+}

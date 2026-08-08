@@ -1,10 +1,7 @@
-/* 1. Global Button Styles (Works anywhere on the site) */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: fit-content;
-  max-width: 100%;
   gap: 8px;
   padding: 10px 22px !important;
   border: 0;
@@ -17,12 +14,21 @@
   overflow: hidden;
   transition: all 0.25s ease;
   cursor: pointer;
+  width: auto;
 
-  i,
-  .btn__arrow {
+  &:active {
+    transform: translateY(0);
+    background:$font-secondary !important;
+    color: $color-white !important;
+
+    &::before {
+      opacity: 0;
+    }
+  }
+
+  i {
     font-size: 16px;
     transition: transform 0.25s ease;
-    display: inline-block;
   }
 
   &::before {
@@ -32,12 +38,10 @@
     left: -100%;
     width: 60%;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba($color-white, 0.35),
-      transparent
-    );
+    background: linear-gradient(90deg,
+        transparent,
+        rgba($color-white, 0.35),
+        transparent);
     transform: skewX(-20deg);
     transition: left 0.6s ease;
   }
@@ -49,47 +53,35 @@
       left: 140%;
     }
 
-    i,
-    .btn__arrow {
+    i {
       transform: translateX(4px);
     }
   }
 
   &:active {
     transform: translateY(0);
-    background-color: $color-primary !important;
-    color: $color-white !important;
-
-    &::before {
-      opacity: 0;
-    }
   }
+
+  // ==========================================
+  // Color Variants
+  // ==========================================
 
   &.btn-teal {
     background-color: $color-teal;
     color: $color-white;
   }
 
+  // Blue Variant (#002f74)
   &.btn-blue {
     background-color: $color-primary;
     color: $color-white;
     background: linear-gradient(135deg, #0046b8 0%, #002f74 100%);
   }
 
+  // Gradient Variant
   &.btn-gradient {
     background: linear-gradient(135deg, $color-teal 0%, #1554d7 100%);
     color: $color-white;
-  }
-
-  &.btn-outline {
-    background: transparent;
-    color: $color-primary;
-    border: 1px solid rgba($color-primary, 0.3) !important;
-
-    &:hover {
-      background: rgba($color-primary, 0.05);
-      border-color: $color-primary !important;
-    }
   }
 
   &.btn-sm,
@@ -98,20 +90,8 @@
     font-size: 12px !important;
     gap: 6px;
 
-    i,
-    .btn__arrow {
+    i {
       font-size: 13px !important;
     }
   }
 }
-
-/* 2. Container Layout (Only used when grouping multiple buttons) */
-.btn-group {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
