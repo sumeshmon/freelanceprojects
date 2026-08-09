@@ -17,7 +17,9 @@
     0 16px 40px rgba($color-primary, 0.12),
     0 0 20px rgba($color-accent-teal, 0.15);
   transition: all 0.35s ease;
-
+  @media (max-width: 767px){
+    bottom: 60px;
+  }
   &__icon {
     width: 42px;
     height: 42px;

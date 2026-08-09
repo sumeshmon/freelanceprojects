@@ -154,4 +154,7 @@ a {
   line-height: 1.6;
   margin-bottom: 12px;
   font-weight: normal;
+  @media (max-width: 768px){
+    text-align: justify;
+  }
 }

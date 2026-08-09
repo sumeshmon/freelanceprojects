@@ -104,6 +104,9 @@
       color: $color-text-dark;
       padding-bottom: 20px;
       margin: 0;
+      @media(max-width: 767px){
+        text-align: justify;
+      }
     }
   }
 }

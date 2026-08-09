@@ -48,6 +48,9 @@
       line-height: 1.6;
       color: $color-text-dark;
       margin-bottom: 20px;
+       @media (max-width: 768px){
+        text-align: justify;
+       }
     }
 
     .author-info {
