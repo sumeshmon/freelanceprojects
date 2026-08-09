@@ -225,6 +225,9 @@
       color: $color-text-muted;
       text-decoration: none;
       transition: color 0.2s ease;
+      @media (max-width: 767px){
+        font-size: 12px;
+      }
 
       &:hover {
         color: $color-accent-teal;
