@@ -18,6 +18,7 @@
   overflow: hidden;
   transition: all 0.25s ease;
   cursor: pointer;
+
   @media (max-width: 992px) {
     max-width: 100%;
   }
@@ -103,6 +104,31 @@
     i,
     .btn__arrow {
       font-size: 13px !important;
+    }
+  }
+
+  /* NEW STYLES: Light & White Button Variants for Dark Backgrounds */
+  &.btn-white,
+  &.btn-light {
+    background-color: $color-white;
+    color: $color-primary;
+
+    &:hover {
+      background-color:$color-bg-light;
+      color: $color-primary;
+    }
+  }
+
+  &.btn-outline-white,
+  &.btn-outline-light {
+    background-color: transparent;
+    color: $color-white;
+    border: 1px solid rgba($color-white, 0.8) !important;
+
+    &:hover {
+      background-color: rgba($color-white, 0.1);
+      border-color: $color-white !important;
+      color: $color-white;
     }
   }
 }
