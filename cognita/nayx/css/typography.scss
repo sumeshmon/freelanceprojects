@@ -113,23 +113,24 @@ a {
   }
 
   @media (max-width: 576px) {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 12.5px;
+    display: block;
+    text-align: center;
+    font-size: 12px;
     letter-spacing: 1px;
     line-height: 1.4;
 
-    // Remove left line completely
     &::before {
       display: none;
     }
 
-    // Turn right line into a centered underline bar below the text
     &::after {
+      content: '';
+      display: block;
       width: 32px;
       height: 2px;
+      background-color: $color-accent-teal;
       border-radius: 1px;
+      margin: 8px auto 0;
     }
   }
 }
