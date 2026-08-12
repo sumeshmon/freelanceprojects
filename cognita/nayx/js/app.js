@@ -1,4 +1,160 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // demo form
+  const form = document.getElementById("notifyForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const statusMessage = document.getElementById("statusMessage");
+
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Disable button & set loading state
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<span class="btn-text">Sending...</span>`;
+    statusMessage.textContent = "";
+    statusMessage.className = "status-message";
+
+    // Gather Form Data
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      // Send data to info@nayx.ai via FormSubmit endpoint
+      const response = await fetch("https://formsubmit.co/ajax/sumeshmon2006@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: "New Launch Notification Sign-up!",
+          _template: "table",
+          Name: data.name,
+          Company: data.company,
+          Title: data.title,
+          Email: data.email,
+          Phone: data.phone,
+          Role: data.role,
+          Reason: data.reason
+        })
+      });
+
+      if (response.ok) {
+        statusMessage.textContent = "Thank you! Your details have been submitted successfully.";
+        statusMessage.classList.add("success");
+        form.reset();
+      } else {
+        throw new Error("Form submission failed.");
+      }
+    } catch (error) {
+      statusMessage.textContent = "Oops! Something went wrong. Please try again.";
+      statusMessage.classList.add("error");
+    } finally {
+      // Re-enable submit button
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <svg class="send-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+        </svg>
+        <span class="btn-text">Notify Me</span>
+      `;
+    }
+  });
+  // demo video
+  const $ = (id) => document.getElementById(id);
+
+  const videoNextBtn = $("nextBtn");
+  const videoTrack = $("track");
+  const videoScrollAmount = 300;
+
+  videoNextBtn?.addEventListener("click", () => {
+    videoTrack?.scrollBy({ left: videoScrollAmount, behavior: "smooth" });
+  });
+
+  // Video Player Logic
+  const video = $("demoVideo");
+  if (!video) return;
+
+  const elements = {
+    watchDemoBtn: $("watchDemoBtn"),
+    centerPlayBtn: $("centerPlayBtn"),
+    ctrlPlayBtn: $("ctrlPlayBtn"),
+    playPauseIcon: $("playPauseIcon"),
+    progressBarWrap: $("progressBarWrap"),
+    progressBarFill: $("progressBarFill"),
+    currentTime: $("currentTime"),
+    duration: $("duration"),
+    muteBtn: $("muteBtn"),
+    fullscreenBtn: $("fullscreenBtn")
+  };
+
+  const SVG_PLAY = '<polygon points="5 3 19 12 5 21 5 3" fill="#ffffff"/>';
+  const SVG_PAUSE = '<rect x="6" y="4" width="4" height="16" fill="#ffffff"/><rect x="14" y="4" width="4" height="16" fill="#ffffff"/>';
+
+  const formatTime = (secs) => {
+    const mins = Math.floor(secs / 60);
+    const remainder = Math.floor(secs % 60).toString().padStart(2, "0");
+    return `${mins}:${remainder}`;
+  };
+
+  const togglePlay = () => (video.paused ? video.play() : video.pause());
+
+  // Attach play/pause triggers safely
+  [elements.centerPlayBtn, elements.ctrlPlayBtn, video].forEach((el) => {
+    el?.addEventListener("click", togglePlay);
+  });
+
+  // Watch Demo action: Smooth scroll to video and play immediately
+  elements.watchDemoBtn?.addEventListener("click", () => {
+    video.scrollIntoView({ behavior: "smooth", block: "center" });
+    video.play();
+  });
+
+  // UI State Sync
+  video.addEventListener("play", () => {
+    elements.centerPlayBtn?.classList.add("is-playing");
+    if (elements.playPauseIcon) elements.playPauseIcon.innerHTML = SVG_PAUSE;
+  });
+
+  video.addEventListener("pause", () => {
+    elements.centerPlayBtn?.classList.remove("is-playing");
+    if (elements.playPauseIcon) elements.playPauseIcon.innerHTML = SVG_PLAY;
+  });
+
+  // Progress Bar & Time Update
+  video.addEventListener("timeupdate", () => {
+    if (!video.duration) return;
+    const percentage = (video.currentTime / video.duration) * 100;
+    if (elements.progressBarFill) elements.progressBarFill.style.width = `${percentage}%`;
+    if (elements.currentTime) elements.currentTime.textContent = formatTime(video.currentTime);
+  });
+
+  video.addEventListener("loadedmetadata", () => {
+    if (elements.duration) elements.duration.textContent = formatTime(video.duration);
+  });
+
+  // Seek video location on progress bar click
+  elements.progressBarWrap?.addEventListener("click", (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pos = (e.clientX - rect.left) / rect.width;
+    video.currentTime = pos * video.duration;
+  });
+
+  // Mute button
+  elements.muteBtn?.addEventListener("click", () => {
+    video.muted = !video.muted;
+    elements.muteBtn.style.opacity = video.muted ? "0.5" : "1";
+  });
+
+  // Fullscreen toggle
+  elements.fullscreenBtn?.addEventListener("click", () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      (video.requestFullscreen || video.webkitRequestFullscreen)?.call(video);
+    }
+  });
   // faq
   document.querySelectorAll('.faq-question').forEach((button) => {
     button.addEventListener('click', () => {
