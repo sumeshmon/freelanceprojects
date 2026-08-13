@@ -1,0 +1,29 @@
+.features-section {
+  background-color: $bg-color;
+  font-family: $font-primary;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Header Styles */
+  &__header {
+    .header-accent {
+      width: 40px;
+      height: 4px;
+      background: linear-gradient(90deg, $color-accent 50%, $text-secondary 50%);
+      border-radius: 2px;
+      margin: 0 auto 20px auto;
+    }
+
+    .description {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  
+  
+}

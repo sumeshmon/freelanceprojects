@@ -1,0 +1,199 @@
+.process-section {
+  background-color: $bg-color;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+
+
+  /* 3 Steps Wrapper */
+  &__steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 40px;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+  }
+
+  /* Connecting Arrows */
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke: $color-accent;
+    }
+
+    @media (max-width: 992px) {
+      transform: rotate(90deg);
+    }
+  }
+
+  /* Step Card Item */
+  .process-card {
+    background: $card-bg;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: 40px 28px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 6px 24px rgba(0, 47, 116, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      box-shadow: 0 10px 30px rgba(0, 47, 116, 0.06);
+    }
+
+    @media (max-width: 992px) {
+      width: 100%;
+       padding: 20px 28px;
+    }
+
+    &__icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      &.icon-blue {
+        background-color: rgba($color-accent, 0.1);
+        svg {
+          stroke: $color-accent;
+        }
+      }
+
+      &.icon-teal {
+        background-color: rgba($text-secondary, 0.12);
+        svg {
+          stroke: $text-secondary;
+        }
+      }
+    }
+
+    &__number {
+      font-family: $font-heading;
+      font-size: 28px;
+      font-weight: $font-bold;
+      margin-bottom: 8px;
+
+      &.text-blue {
+        color: $color-accent;
+      }
+
+      &.text-teal {
+        color: $text-secondary;
+      }
+    }
+
+    &__title {
+      font-family: $font-secondary;
+      font-size: 18px;
+      font-weight: $font-bold;
+      color: $text-primary;
+      margin-bottom: 12px;
+    }
+
+    &__accent-line {
+      width: 28px;
+      height: 3px;
+      background-color: $color-accent;
+      border-radius: 2px;
+      margin-bottom: 20px;
+
+      &.bg-teal {
+        background-color: $text-secondary;
+      }
+    }
+  }
+
+  /* Bottom Banner Component */
+  .process-banner {
+    background: $card-bg;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 4px 20px rgba(0, 47, 116, 0.03);
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+      gap: 16px;
+    }
+
+    &__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      &.icon-blue {
+        background-color: rgba($color-accent, 0.1);
+        svg {
+          width: 26px;
+          height: 26px;
+          stroke: $color-accent;
+        }
+      }
+    }
+
+    &__divider {
+      width: 1px;
+      height: 48px;
+      background-color: $border-color;
+
+      @media (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    &__content {
+      flex-grow: 1;
+
+      .description {
+        font-size: 14px;
+        font-weight: $font-regular;
+        color: $color-text-muted;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+
+    &__title {
+      font-family: $font-heading;
+      font-size: 16px;
+      font-weight: $font-bold;
+      color: $text-primary;
+      margin-bottom: 4px;
+    }
+  }
+}

@@ -4,9 +4,11 @@ body {
   font-size: 1rem;
   line-height: 1.6;
 }
-button{
+
+button {
   outline: 0;
 }
+
 h1,
 h2,
 h3,
@@ -18,6 +20,7 @@ h6 {
   font-weight: 700;
   line-height: 1.2;
 }
+
 h1 {
   font-size: 48px;
   letter-spacing: -1px;
@@ -25,6 +28,7 @@ h1 {
   @media (max-width: 992px) {
     font-size: 38px;
   }
+
   @media (max-width: 576px) {
     font-size: 32px;
   }
@@ -37,6 +41,7 @@ h2 {
   @media (max-width: 992px) {
     font-size: 32px;
   }
+
   @media (max-width: 576px) {
     font-size: 26px;
   }
@@ -49,6 +54,7 @@ h3 {
   @media (max-width: 992px) {
     font-size: 24px;
   }
+
   @media (max-width: 576px) {
     font-size: 22px;
   }
@@ -75,6 +81,7 @@ h6 {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
+
 p {
   margin-bottom: 1rem;
   font-family: $font-primary;
@@ -82,7 +89,7 @@ p {
 
 a {
   text-decoration: none;
-  color: $color-primary; 
+  color: $color-primary;
 }
 
 // titles
@@ -135,6 +142,15 @@ a {
   }
 }
 
+.title-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 56px auto;
+  @media(max-width:768px){
+    margin: 0 auto 26px auto;
+  }
+}
+
 .main-title {
   color: $text-primary;
   line-height: 1.2;
@@ -156,7 +172,8 @@ a {
   line-height: 1.6;
   margin-bottom: 12px;
   font-weight: normal;
-  @media (max-width: 768px){
+
+  @media (max-width: 768px) {
     text-align: justify;
   }
 }
