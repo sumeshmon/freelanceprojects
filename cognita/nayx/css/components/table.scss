@@ -1,0 +1,61 @@
+// Header Colors
+.bg-navy { background-color: $color-primary; }
+.bg-slate { background-color: $text-muted; }
+.bg-blue { background-color: $color-accent; }
+
+// Body Cell Colors
+.text-navy { color: $text-primary; }
+.text-teal { color: $color-teal; }
+.bg-teal-light { background-color: $color-bg-light; }
+
+// Left Column Icons
+.item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $bg-color;
+  color: $color-accent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Header Check Icon Ring
+.header-check-ring {
+  width: 22px;
+  height: 22px;
+  border: 2px solid $color-white;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Row Green Check Badges
+.row-check-badge {
+  width: 18px;
+  height: 18px;
+  background-color: $color-teal;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    width: 4px;
+    height: 8px;
+    border: solid $color-white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+  }
+}

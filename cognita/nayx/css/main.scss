@@ -1,36 +1,48 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
-@import "vars";
-@import "fonts";
-@import "buttons";
-@import "typography";
-@import "nav";
-@import "hero";
+@import "abstracts/vars.scss";
+@import "abstracts/fonts.scss";
+
+@import "base/typography";
+@import "base/skip-link"; 
+@import "base/custom";
+
+@import "layout/footer"; 
+@import "layout/nav"; 
+@import "layout/demo-footer";
+@import "layout/mobile-menu"; 
+
+@import "components/card.scss";
+@import "components/table.scss";
+@import "components/inner-baner";
+@import "components/buttons";
+@import "components/chat-with-us"; 
+@import "components/faqs";
+@import "components/hero";
+@import "components/platform-card"; 
+@import "components/testimonials"; 
+
 @import "who-we-are"; 
 @import "facility-banner"; 
 @import "why-choose"; 
 @import "benefits"; 
 @import "request-demo"; 
 @import "how-works"; 
-@import "platform-card"; 
-@import "footer"; 
-@import "faqs"; 
-@import "testimonials"; 
-@import "mobile-menu"; 
-@import "skip-link"; 
-@import "chat-with-us"; 
-@import "custom";
-@import "inner-baner";
+
 @import "about-guiding-pillars";
 @import "about-values-section";
 @import "about-foundation";
 @import "about-cta-section";
 @import "demo";
 @import "demo-form";
-@import "demo-footer";
+
 @import "professional-clinical";
 @import "professional-features";
 @import "professional-specialties";
 @import "professional-process";
-@import "components/card.scss";
+@import "how-works-page";
+@import "how-works-process-steps";
+@import "contact";
+
+
