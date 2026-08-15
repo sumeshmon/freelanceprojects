@@ -3,6 +3,9 @@ body {
   font-weight: $font-regular;
   font-size: 1rem;
   line-height: 1.6;
+  @media(max-width:768px){
+    font-size: 0.9375rem;
+  }
 }
 
 button {
@@ -89,7 +92,12 @@ p {
 
 a {
   text-decoration: none;
-  color: $color-primary;
+  color: $text-primary;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $color-teal;
+  }
 }
 
 // titles

@@ -1,0 +1,303 @@
+// ==========================================
+// REUSABLE LEGAL/DOCUMENT PAGE COMPONENT
+// ==========================================
+.doc-page {
+  width: 100%;
+  color: $color-text-muted;
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @media (max-width: 768px) {
+      padding: 0 16px;
+    }
+  }
+}
+
+// ==========================================
+// HEADER AREA
+// ==========================================
+.doc-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 24px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+
+  &__content {
+    flex: 1;
+    max-width: 780px;
+  }
+
+  &__title {
+    color: $color-heading;
+    margin: 0 0 16px 0;
+    line-height: 1.1;
+    font-weight: 800;
+
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+     @media (max-width: 768px){
+      gap: 12px;
+     }
+  }
+
+  &__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: $color-text-muted;
+
+    @media (max-width: 768px) {
+      font-size: 0.9375rem;
+    }
+
+    strong {
+      color: $color-heading;
+      font-weight: $font-semibold;
+    }
+  }
+
+  &__meta-icon {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    max-width: 18px;
+    max-height: 18px;
+    stroke: $color-teal;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  &__text {
+    font-size: 1rem;
+    font-weight: $font-regular;
+    line-height: 1.6;
+    color: $color-text-muted;
+    margin: 0 0 14px 0;
+
+    @media (max-width: 768px) {
+      font-size: 0.9375rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__graphic {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      align-self: center;
+    }
+  }
+}
+
+.doc-graphic-ring {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px dashed rgba($color-teal, 0.4);
+  background-color: $bg-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doc-graphic-shield {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: $card-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba($color-primary, 0.08);
+
+  svg {
+    width: 56px;
+    height: 56px;
+    fill: $color-teal;
+  }
+}
+
+// ==========================================
+// DOCUMENT STACK & CARDS
+// ==========================================
+.doc-stack {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.doc-card {
+  padding: 28px 0;
+  border-bottom: 1px solid $border-color;
+  display: flex;
+  flex-direction: column;
+  @media(max-width:768px){
+    padding: 14px 0;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__title {
+    font-size: 1.35rem;
+    font-weight: $font-bold;
+    color: $color-heading;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    font-weight: $font-bold;
+    color: $color-heading;
+    margin: 20px 0 10px 0;
+    line-height: 1.3;
+  }
+
+  &__text {
+    font-size: 1rem;
+    font-weight: $font-regular;
+    line-height: 1.6;
+    color: $color-text-muted;
+    margin: 0 0 12px 0;
+
+    @media (max-width: 768px) {
+      text-align: justify;
+      font-size: 0.9375rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--spaced {
+      margin-top: 14px;
+    }
+
+    strong {
+      color: $color-heading;
+      font-weight: $font-semibold;
+    }
+  }
+
+  &__list {
+    margin: 0 0 12px 0;
+    padding-left: 24px;
+    list-style-type: disc;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    li {
+      font-size: 1rem;
+      font-weight: $font-regular;
+      line-height: 1.65;
+      color: $color-text-muted;
+      margin-bottom: 10px;
+
+      @media (max-width: 768px) {
+        text-align: justify;
+        font-size: 0.9375rem;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        font-weight: $font-semibold;
+        color: $color-heading;
+      }
+    }
+  }
+
+  &__contact {
+    font-size: 1rem;
+    color: $color-text-muted;
+    margin: 4px 0 0 0;
+
+    @media (max-width: 768px) {
+      font-size: 0.9375rem;
+    }
+
+    strong {
+      color: $color-heading;
+    }
+  }
+
+  // ==========================================
+  // RESPONSIVE TABLE STYLES
+  // ==========================================
+  &__table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+    background: $card-bg;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    /* rest of table styles */
+  
+    @media (max-width: 768px) {
+      font-size: 0.9375rem;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid $border-color;
+      line-height: 1.5;
+    }
+
+    th {
+      font-weight: $font-bold;
+      color: $color-heading;
+      background-color: rgba($color-teal, 0.06);
+      white-space: nowrap;
+    }
+
+    td {
+      color: $color-text-muted;
+
+      strong {
+        color: $color-heading;
+        font-weight: $font-semibold;
+      }
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  }
+}

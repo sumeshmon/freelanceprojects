@@ -22,7 +22,7 @@ section {
 .inner-section {
   padding: 60px 20px;
   background-color: #f8fafc;
-  @media(max-width:767px){
+  @media(max-width:768px){
      padding: 30px 20px;
   }
   &__container {
@@ -31,8 +31,8 @@ section {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    @media(max-width:767px){
-      gap: 20px;
+    @media(max-width:768px){
+      gap: 12px;
     }
   }
 }

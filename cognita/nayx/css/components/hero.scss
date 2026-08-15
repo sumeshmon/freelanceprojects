@@ -93,7 +93,7 @@
     line-height: 1.2;
     margin-bottom: 20px;
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       font-size: 24px;
     }
 
@@ -111,7 +111,7 @@
     margin-bottom: 30px;
     max-width: 520px;
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       text-align: justify;
     }
   }
@@ -129,7 +129,7 @@
       order: 3;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       letter-spacing: -0.3px;
       gap: 10px;
       justify-content: center;
@@ -375,7 +375,7 @@
     display: inline-flex;
     align-items: baseline;
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       font-size: 26px;
     }
 

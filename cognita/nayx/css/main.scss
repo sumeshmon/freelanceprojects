@@ -22,27 +22,33 @@
 @import "components/hero";
 @import "components/platform-card"; 
 @import "components/testimonials"; 
+@import "components/document";
 
-@import "who-we-are"; 
-@import "facility-banner"; 
-@import "why-choose"; 
-@import "benefits"; 
-@import "request-demo"; 
-@import "how-works"; 
+@import "pages/about-guiding-pillars";
+@import "pages/about-values-section";
+@import "pages/about-foundation";
+@import "pages/about-cta-section";
 
-@import "about-guiding-pillars";
-@import "about-values-section";
-@import "about-foundation";
-@import "about-cta-section";
+@import "pages/who-we-are"; 
+@import "pages/facility-banner"; 
+@import "pages/why-choose"; 
+@import "pages/benefits"; 
+@import "pages/request-demo"; 
+@import "pages/how-works";
+@import "pages/professional-clinical";
+@import "pages/professional-features";
+@import "pages/professional-specialties";
+@import "pages/professional-process";
+@import "pages/how-works-page";
+@import "pages/how-works-process-steps";
+@import "pages/contact";
+
+
+
 @import "demo";
 @import "demo-form";
 
-@import "professional-clinical";
-@import "professional-features";
-@import "professional-specialties";
-@import "professional-process";
-@import "how-works-page";
-@import "how-works-process-steps";
-@import "contact";
+
+
 
 

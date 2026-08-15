@@ -44,7 +44,7 @@
     color: $color-primary;
     margin-bottom: 1.25rem;
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       justify-content: center;
     }
 
@@ -257,7 +257,7 @@
       color: $color-text-muted;
       text-decoration: none;
       transition: color 0.2s ease;
-      @media (max-width: 767px){
+      @media (max-width: 768px){
         font-size: 12px;
       }
 
