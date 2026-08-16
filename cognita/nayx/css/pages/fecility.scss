@@ -1,0 +1,247 @@
+// ==========================================
+// INFO CALLOUT CARDS
+// ==========================================
+.info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 28px;
+  border-radius: 14px;
+
+  @media (max-width: 767.98px) {
+    padding: 18px 20px;
+    gap: 14px;
+  }
+
+  // Teal Card Variant
+  &--teal {
+    background-color: rgba($color-teal, 0.05);
+    border: 1px solid rgba($color-teal, 0.25);
+
+    .info-card__title {
+      color: $color-teal;
+    }
+
+    .info-card__icon--arrow {
+      background-color: $card-bg;
+      color: $color-teal;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  // Blue Border Card Variant
+  &--blue {
+    background-color: $card-bg;
+    border: 1px solid $border-color;
+    border-left: 4px solid $color-primary;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+
+    .info-card__icon--check {
+      background-color: $color-primary;
+      color: #ffffff;
+    }
+  }
+
+  &__icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    @media (max-width: 767.98px) {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      min-height: 36px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: $font-bold;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+  }
+
+  &__text {
+    font-size: 1rem;
+    font-weight: $font-regular;
+    line-height: 1.6;
+    color: $color-text-muted;
+    margin: 0;
+
+    @media (max-width: 767.98px) {
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+
+// ==========================================
+// ENTERPRISE CARDS GRID
+// ==========================================
+.enterprise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @media (max-width: 767.98px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.enterprise-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  }
+
+  @media (max-width: 767.98px) {
+    padding: 24px 20px;
+  }
+
+  &__icon-wrapper {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 20px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      border: 1px dashed #cbd5e1;
+    }
+  }
+
+  &__icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #ffffff;
+
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    &--blue {
+      background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    }
+
+    &--teal {
+      background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
+      box-shadow: 0 8px 20px rgba(13, 148, 136, 0.25);
+    }
+  }
+
+  &__badge-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+
+    strong {
+      font-size: 0.6875rem;
+      font-weight: 800;
+    }
+
+    small {
+      font-size: 0.5rem;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    &--speed {
+      font-size: 0.8125rem;
+      font-weight: 800;
+      top: 48px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 16px 0;
+    line-height: 1.3;
+
+    strong {
+      display: block;
+      font-size: 1.375rem;
+      font-weight: 800;
+      color: #0284c7;
+      margin-bottom: 4px;
+    }
+
+    span {
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    @media (max-width: 767.98px) {
+      strong {
+        font-size: 1.25rem;
+      }
+      span {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__divider {
+    width: 32px;
+    height: 3px;
+    background: #0284c7;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: #64748b;
+    margin: 0;
+
+    @media (max-width: 767.98px) {
+      font-size: 0.875rem;
+    }
+  }
+}
