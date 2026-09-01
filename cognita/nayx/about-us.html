@@ -29,7 +29,10 @@
           <img src="./assets/images/logo.png" alt="NAYX - Intelligence Behind Every Shift">
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+        <div class="mobile-language">
+                    <button type="button" id="languageBtnMobile" class="language-btn-reset"></button>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
           aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
 
           <span class="navbar-toggler-icon"></span>
@@ -63,9 +66,15 @@
                         </li>
 
             <li class="nav-item ms-lg-3">
-              <button type="button" class="btn btn-gradient">Request Demo</button>
+                            <button type="button" class="btn btn-gradient">Request Demo</button>
 
-              </a>
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-lg-inline-flex">
+              <div class="language-switcher">
+                <button type="button" id="languageBtn" class="language-btn-reset"></button>
+              </div>
+              <div id="google_translate_element"></div>
             </li>
 
           </ul>
@@ -799,6 +808,8 @@
   </a>
   <!-- chat with us ends -->
   <script src="js/app.js"></script>
+<script src="js/language.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
