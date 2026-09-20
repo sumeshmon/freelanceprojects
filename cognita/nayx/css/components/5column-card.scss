@@ -1,0 +1,108 @@
+// ==========================================
+// WORKFLOW PROCESS SECTION (CLEAN 2-COLUMN GRID)
+// ==========================================
+
+.workflow-section {
+  padding: 60px 0;
+  background-color: $bg-color;
+
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+
+    @media (max-width: 991.98px) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .workflow-full {
+    grid-column: 1 / -1;
+  }
+
+  // Workflow Cards
+  .workflow-card {
+    position: relative;
+    background: $card-bg;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: 32px 28px 28px;
+    box-shadow: 0 4px 20px rgba(0, 47, 116, 0.03);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 47, 116, 0.06);
+    }
+
+    // Number Badges
+    .step-badge {
+      position: absolute;
+      top: -18px;
+      left: 20px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: $font-bold;
+      font-size: 0.9375rem;
+      color: $color-white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      z-index: 2;
+
+      &.badge-primary {
+        background-color: $secondary-color;
+      }
+
+      &.badge-teal {
+        background-color: $color-teal;
+      }
+    }
+
+    // Card Content
+    .card-content {
+      .step-title {
+        font-weight: $font-bold;
+        font-size: 1.0625rem;
+        color: $color-heading;
+        line-height: 1.35;
+        margin: 0 0 10px 0;
+      }
+
+      .step-desc {
+        color: $text-muted;
+        line-height: 1.55;
+        margin: 0;
+      }
+
+      // Bulleted List
+      .step-bullets {
+        margin: 10px 0 0 0;
+        padding-left: 18px;
+        list-style-type: disc;
+
+        li {
+          line-height: 1.5;
+          margin-bottom: 6px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          strong {
+            font-family: $font-secondary;
+            font-weight: $font-semibold;
+            color: $color-text-dark;
+          }
+        }
+      }
+    }
+  }
+}

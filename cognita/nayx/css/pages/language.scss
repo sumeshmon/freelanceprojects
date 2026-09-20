@@ -45,6 +45,8 @@ body {
 
     transition: transform .2s ease, box-shadow .2s ease !important;
     user-select: none !important;
+
+    font-size: 14px !important;
 }
 
 /* Hover */
@@ -105,6 +107,6 @@ body {
         height: 34px !important;
         padding: 0 11px !important;
         margin: 0 10px 0 0 !important;
-        font-size: 10px !important;
+        font-size: 12px !important;
     }
 }

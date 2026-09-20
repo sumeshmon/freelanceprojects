@@ -15046,6 +15046,93 @@ section {
   display: none;
 }
 
+.workflow-section {
+  padding: 60px 0;
+  background-color: #f8fbff;
+}
+.workflow-section .workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 24px;
+}
+@media (max-width: 991.98px) {
+  .workflow-section .workflow-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+.workflow-section .workflow-full {
+  grid-column: 1/-1;
+}
+.workflow-section .workflow-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #f0f4f9;
+  border-radius: 16px;
+  padding: 32px 28px 28px;
+  box-shadow: 0 4px 20px rgba(0, 47, 116, 0.03);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.workflow-section .workflow-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 47, 116, 0.06);
+}
+.workflow-section .workflow-card .step-badge {
+  position: absolute;
+  top: -18px;
+  left: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+}
+.workflow-section .workflow-card .step-badge.badge-primary {
+  background-color: #0052cc;
+}
+.workflow-section .workflow-card .step-badge.badge-teal {
+  background-color: #0bbeba;
+}
+.workflow-section .workflow-card .card-content .step-title {
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: #002f74;
+  line-height: 1.35;
+  margin: 0 0 10px 0;
+}
+.workflow-section .workflow-card .card-content .step-desc {
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+.workflow-section .workflow-card .card-content .step-bullets {
+  margin: 10px 0 0 0;
+  padding-left: 18px;
+  list-style-type: disc;
+}
+.workflow-section .workflow-card .card-content .step-bullets li {
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.workflow-section .workflow-card .card-content .step-bullets li:last-child {
+  margin-bottom: 0;
+}
+.workflow-section .workflow-card .card-content .step-bullets li strong {
+  font-family: "Instrument Sans Medium", sans-serif;
+  font-weight: 600;
+  color: #1e293b;
+}
+
 .guiding-pillars-section {
   background-color: #f8fafc;
 }
@@ -15487,6 +15574,7 @@ body {
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), inset 0 -2px 2px rgba(0, 60, 130, 0.18), 0 2px 5px rgba(0, 70, 150, 0.22) !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease !important;
   user-select: none !important;
+  font-size: 14px !important;
 }
 
 /* Hover */
@@ -15536,7 +15624,7 @@ body {
     height: 34px !important;
     padding: 0 11px !important;
     margin: 0 10px 0 0 !important;
-    font-size: 10px !important;
+    font-size: 12px !important;
   }
 }
 .about-section {
