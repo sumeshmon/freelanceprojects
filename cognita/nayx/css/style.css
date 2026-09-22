@@ -14278,6 +14278,18 @@ section {
   transform: rotate(-90deg) scale(1.1);
 }
 
+.store-icon {
+  font-size: 20px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.store-arrow {
+  font-size: 18px;
+  color: #ffffff;
+  transition: transform 0.25s ease;
+}
+
 .hero-feature {
   width: 100%;
   background: #f8fafc;
