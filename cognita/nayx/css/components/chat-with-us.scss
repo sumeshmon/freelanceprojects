@@ -1,38 +1,91 @@
-.chat-btn {
+.floating-actions {
   position: fixed;
   right: 32px;
-  bottom: 50px;
+  bottom: 32px;
   z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+
+  // Tablet
+  @media (max-width: 1024px) {
+    right: 24px;
+    bottom: 32px;
+    gap: 9px;
+  }
+
+  // Mobile
+  @media (max-width: 768px) {
+    right: 12px;
+    bottom: 70px;
+    gap: 7px;
+  }
+
+  // Small mobile
+  @media (max-width: 375px) {
+    right: 10px;
+    bottom: 65px;
+    gap: 6px;
+  }
+}
+
+.floating-action {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  height: 58px;
-  padding: 0 1.5rem 0 0.75rem;
-  background: rgba($color-white, 0.95);
+  gap: 10px;
+
+  height: 54px;
+  padding: 0 20px 0 8px;
+
+  background: rgba($color-white, 0.96);
   backdrop-filter: blur(18px);
-  border: 1px solid rgba($color-accent-teal, 0.2);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba($color-accent-teal, 0.18);
   border-radius: 999px;
+
   text-decoration: none;
+
   box-shadow:
-    0 16px 40px rgba($color-primary, 0.12),
-    0 0 20px rgba($color-accent-teal, 0.15);
-  transition: all 0.35s ease;
-  @media (max-width: 768px){
-    bottom: 60px;
-  }
+    0 12px 32px rgba($color-primary, 0.10),
+    0 0 20px rgba($color-accent-teal, 0.10);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+
+  // Icon
   &__icon {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     flex-shrink: 0;
+
     border-radius: 50%;
-    background: linear-gradient(135deg, $color-accent-teal, #6366f1);
+
+    background: linear-gradient(
+      135deg,
+      $color-accent-teal,
+      #6366f1
+    );
+
     color: $color-white;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 15px rgba($color-accent-teal, 0.3);
-    transition: all 0.35s ease;
+    font-size: 1.1rem;
+
+    box-shadow:
+      0 5px 14px rgba($color-accent-teal, 0.25);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
 
     i {
       line-height: 1;
@@ -40,34 +93,121 @@
     }
   }
 
+  // Text
   &__text {
     font-family: $font-primary;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: $font-semibold;
+    line-height: 1;
     color: $text-primary;
     letter-spacing: -0.01em;
     white-space: nowrap;
-    transition: color 0.35s ease;
+
+    transition: color 0.3s ease;
   }
 
+  // Ask AI
+  &--ai {
+    .floating-action__icon {
+      background: linear-gradient(
+        135deg,
+        $color-accent-teal,
+        #6366f1
+      );
+    }
+  }
+
+  // Download App
+  &--download {
+    .floating-action__icon {
+      background: linear-gradient(
+        135deg,
+        #2563eb,
+        $color-primary
+      );
+    }
+  }
+
+  // Hover
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
+
     border-color: rgba($color-accent-teal, 0.35);
+
+    background: rgba($color-white, 0.99);
+
     box-shadow:
-      0 24px 50px rgba($color-primary, 0.16),
-      0 0 30px rgba($color-accent-teal, 0.25);
+      0 18px 40px rgba($color-primary, 0.14),
+      0 0 25px rgba($color-accent-teal, 0.16);
+
     text-decoration: none;
 
-    .chat-btn__icon {
-      transform: scale(1.08) rotate(-6deg);
+    .floating-action__icon {
+      transform: scale(1.06);
+
+      box-shadow:
+        0 7px 18px rgba($color-accent-teal, 0.32);
     }
 
-    .chat-btn__text {
+    .floating-action__text {
       color: $color-primary;
     }
   }
 
+  // Press
   &:active {
     transform: translateY(-1px) scale(0.98);
+  }
+
+  // Tablet
+  @media (max-width: 1024px) {
+    height: 50px;
+    padding: 0 17px 0 7px;
+    gap: 9px;
+
+    &__icon {
+      width: 38px;
+      height: 38px;
+      font-size: 1rem;
+    }
+
+    &__text {
+      font-size: 0.875rem;
+    }
+  }
+
+  // Mobile
+  @media (max-width: 768px) {
+    height: 44px;
+    padding: 0 12px 0 6px;
+    gap: 7px;
+
+    &__icon {
+      width: 32px;
+      height: 32px;
+      font-size: 0.9rem;
+    }
+
+    &__text {
+      font-size: 0.8125rem;
+      font-weight: $font-semibold;
+    }
+  }
+
+  // Small mobile
+  @media (max-width: 375px) {
+    height: 40px;
+    padding: 0 10px 0 5px;
+    gap: 6px;
+
+    &__icon {
+      width: 29px;
+      height: 29px;
+      font-size: 0.8rem;
+    }
+
+    &__text {
+      font-size: 0.75rem;
+    }
   }
 }

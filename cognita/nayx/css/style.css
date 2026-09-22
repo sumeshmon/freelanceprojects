@@ -13662,32 +13662,56 @@ section {
   margin-top: 16px;
 }
 
-.chat-btn {
+.floating-actions {
   position: fixed;
   right: 32px;
-  bottom: 50px;
+  bottom: 32px;
   z-index: 999;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  height: 58px;
-  padding: 0 1.5rem 0 0.75rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(11, 190, 186, 0.2);
-  border-radius: 999px;
-  text-decoration: none;
-  box-shadow: 0 16px 40px rgba(0, 47, 116, 0.12), 0 0 20px rgba(11, 190, 186, 0.15);
-  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
-@media (max-width: 768px) {
-  .chat-btn {
-    bottom: 60px;
+@media (max-width: 1024px) {
+  .floating-actions {
+    right: 24px;
+    bottom: 32px;
+    gap: 9px;
   }
 }
-.chat-btn__icon {
-  width: 42px;
-  height: 42px;
+@media (max-width: 768px) {
+  .floating-actions {
+    right: 12px;
+    bottom: 70px;
+    gap: 7px;
+  }
+}
+@media (max-width: 375px) {
+  .floating-actions {
+    right: 10px;
+    bottom: 65px;
+    gap: 6px;
+  }
+}
+
+.floating-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 54px;
+  padding: 0 20px 0 8px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(11, 190, 186, 0.18);
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 12px 32px rgba(0, 47, 116, 0.1), 0 0 20px rgba(11, 190, 186, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.floating-action__icon {
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13695,37 +13719,92 @@ section {
   border-radius: 50%;
   background: linear-gradient(135deg, #0bbeba, #6366f1);
   color: #ffffff;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 15px rgba(11, 190, 186, 0.3);
-  transition: all 0.35s ease;
+  font-size: 1.1rem;
+  box-shadow: 0 5px 14px rgba(11, 190, 186, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.chat-btn__icon i {
+.floating-action__icon i {
   line-height: 1;
   font-family: "bootstrap-icons" !important;
 }
-.chat-btn__text {
+.floating-action__text {
   font-family: "Instrument Sans", sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
+  line-height: 1;
   color: #002f74;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  transition: color 0.35s ease;
+  transition: color 0.3s ease;
 }
-.chat-btn:hover {
-  transform: translateY(-4px);
+.floating-action--ai .floating-action__icon {
+  background: linear-gradient(135deg, #0bbeba, #6366f1);
+}
+.floating-action--download .floating-action__icon {
+  background: linear-gradient(135deg, #2563eb, #002f74);
+}
+.floating-action:hover {
+  transform: translateY(-3px);
   border-color: rgba(11, 190, 186, 0.35);
-  box-shadow: 0 24px 50px rgba(0, 47, 116, 0.16), 0 0 30px rgba(11, 190, 186, 0.25);
+  background: rgba(255, 255, 255, 0.99);
+  box-shadow: 0 18px 40px rgba(0, 47, 116, 0.14), 0 0 25px rgba(11, 190, 186, 0.16);
   text-decoration: none;
 }
-.chat-btn:hover .chat-btn__icon {
-  transform: scale(1.08) rotate(-6deg);
+.floating-action:hover .floating-action__icon {
+  transform: scale(1.06);
+  box-shadow: 0 7px 18px rgba(11, 190, 186, 0.32);
 }
-.chat-btn:hover .chat-btn__text {
+.floating-action:hover .floating-action__text {
   color: #002f74;
 }
-.chat-btn:active {
+.floating-action:active {
   transform: translateY(-1px) scale(0.98);
+}
+@media (max-width: 1024px) {
+  .floating-action {
+    height: 50px;
+    padding: 0 17px 0 7px;
+    gap: 9px;
+  }
+  .floating-action__icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+  .floating-action__text {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 768px) {
+  .floating-action {
+    height: 44px;
+    padding: 0 12px 0 6px;
+    gap: 7px;
+  }
+  .floating-action__icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .floating-action__text {
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+}
+@media (max-width: 375px) {
+  .floating-action {
+    height: 40px;
+    padding: 0 10px 0 5px;
+    gap: 6px;
+  }
+  .floating-action__icon {
+    width: 29px;
+    height: 29px;
+    font-size: 0.8rem;
+  }
+  .floating-action__text {
+    font-size: 0.75rem;
+  }
 }
 
 .faq-section {
