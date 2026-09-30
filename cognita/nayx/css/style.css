@@ -12815,6 +12815,10 @@ section {
   height: 38px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .cs-footer {
   background: linear-gradient(180deg, #f4f8fc 0%, #ebf2f9 100%);
   padding: 40px 24px;
@@ -15222,6 +15226,160 @@ section {
   font-family: "Instrument Sans Medium", sans-serif;
   font-weight: 600;
   color: #1e293b;
+}
+
+.nayx-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.nayx-eyebrow__line {
+  width: 32px;
+  height: 2px;
+  background-color: #00d2c4;
+  display: inline-block;
+}
+.nayx-eyebrow__text {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0b1a30;
+  text-transform: uppercase;
+}
+.nayx-eyebrow__highlight {
+  color: #00d2c4;
+}
+
+.nayx-gradient-text {
+  background: linear-gradient(135deg, #0052ff 0%, #00d2c4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nayx-subheading {
+  font-size: 0.9375rem;
+  color: #64748b;
+  line-height: 1.5;
+  max-width: 620px;
+  margin: 12px auto 0;
+}
+
+.nayx-form__label {
+  font-size: 0.84375rem;
+  font-weight: 700;
+  color: #0b1a30;
+  margin-bottom: 8px;
+  display: block;
+}
+.nayx-form__required {
+  color: #ef4444;
+}
+.nayx-form__input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nayx-form__icon {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+.nayx-form__control, .nayx-form__select {
+  width: 100%;
+  height: 48px;
+  padding-left: 42px;
+  padding-right: 16px;
+  font-size: 0.875rem;
+  color: #0b1a30;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+.nayx-form__control::placeholder, .nayx-form__select::placeholder {
+  color: #94a3b8;
+}
+.nayx-form__control:focus, .nayx-form__select:focus {
+  border-color: #0052ff;
+  box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.1);
+  outline: none;
+}
+.nayx-form__control:focus ~ .nayx-form__icon, .nayx-form__select:focus ~ .nayx-form__icon {
+  color: #0052ff;
+}
+.nayx-form__select {
+  appearance: none;
+  padding-left: 16px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%230b1a30' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+}
+.nayx-form__submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 480px;
+  height: 52px;
+  background: linear-gradient(135deg, #0052ff 0%, #00d2c4 100%);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 82, 255, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.nayx-form__submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 82, 255, 0.35);
+  color: #ffffff;
+}
+.nayx-form__submit-btn:active {
+  transform: translateY(0);
+}
+.nayx-form__btn-icon {
+  width: 16px;
+  height: 16px;
+}
+.nayx-form__disclaimer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.nayx-form__disclaimer p {
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+.nayx-form__disclaimer p a {
+  color: #0b1a30;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.nayx-form__disclaimer p a:hover {
+  color: #0052ff;
+}
+.nayx-form__lock-icon {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  color: #94a3b8;
+  margin-top: 2px;
 }
 
 .guiding-pillars-section {

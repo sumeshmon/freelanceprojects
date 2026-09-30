@@ -1,0 +1,178 @@
+.nayx-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+
+  &__line {
+    width: 32px;
+    height: 2px;
+    background-color: $nayx-teal;
+    display: inline-block;
+  }
+
+  &__text {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: $nayx-navy;
+    text-transform: uppercase;
+  }
+
+  &__highlight {
+    color: $nayx-teal;
+  }
+}
+
+.nayx-gradient-text {
+  background: linear-gradient(135deg, $nayx-blue 0%, $nayx-teal 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nayx-subheading {
+  font-size: 0.9375rem;
+  color: $nayx-muted;
+  line-height: 1.5;
+  max-width: 620px;
+  margin: 12px auto 0;
+}
+
+// Scoped BEM Form Elements (Zero CSS Conflict)
+.nayx-form {
+  &__label {
+    font-size: 0.84375rem;
+    font-weight: 700;
+    color: $nayx-navy;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  &__required {
+    color: $nayx-danger;
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    color: #94a3b8;
+    pointer-events: none;
+    transition: color 0.2s ease;
+  }
+
+  &__control,
+  &__select {
+    width: 100%;
+    height: 48px;
+    padding-left: 42px;
+    padding-right: 16px;
+    font-size: 0.875rem;
+    color: $nayx-navy;
+    background-color: $nayx-bg;
+    border: 1px solid $nayx-border;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+
+    &::placeholder {
+      color: #94a3b8;
+    }
+
+    &:focus {
+      border-color: $nayx-blue;
+      box-shadow: 0 0 0 3px rgba($nayx-blue, 0.1);
+      outline: none;
+
+      ~ .nayx-form__icon {
+        color: $nayx-blue;
+      }
+    }
+  }
+
+  &__select {
+    appearance: none;
+    padding-left: 16px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%230b1a30' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 12px;
+  }
+
+  &__submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 480px;
+    height: 52px;
+    background: linear-gradient(135deg, $nayx-blue 0%, $nayx-teal 100%);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba($nayx-blue, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba($nayx-blue, 0.35);
+      color: #ffffff;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__btn-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__disclaimer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+
+    p {
+      font-size: 0.75rem;
+      color: $nayx-muted;
+      line-height: 1.5;
+      margin: 0;
+
+      a {
+        color: $nayx-navy;
+        font-weight: 600;
+        text-decoration: underline;
+
+        &:hover {
+          color: $nayx-blue;
+        }
+      }
+    }
+  }
+
+  &__lock-icon {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    color: #94a3b8;
+    margin-top: 2px;
+  }
+}
+
